@@ -103,6 +103,11 @@ class JsonFormat extends Format
                 );
             }
         }
+
+        if ($data === null || $data === '') {
+            return null;
+        }
+
         $decoded = json_decode($data, true, 512, $options);
         if (function_exists('json_last_error')) {
             switch (json_last_error()) {
